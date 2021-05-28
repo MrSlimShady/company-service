@@ -1,9 +1,10 @@
 package com.stockmarketcharting.companyservice.controller;
 
-//import com.stockmarketcharting.companyservice.entity.Company;
-//import com.stockmarketcharting.companyservice.service.CompanyService;
+import com.stockmarketcharting.companyservice.entity.Company;
+import com.stockmarketcharting.companyservice.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,15 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class CompanyController {
 
-//    @Autowired
-//    CompanyService companyService;
-//    @GetMapping("/details/")
-//    public Company getCompanyDetails(){
-//
-//
-//
-//        return companyService.getCompanyDetails(1);
-//    }
+    @Autowired
+    CompanyService companyService;
+    @GetMapping("/details/{id}")
+    public Company getCompanyDetails(@PathVariable("id") Long id){
+        return companyService.getCompanyDetails(id);
+    }
 
     @GetMapping("/price")
     public String getCompanyStockPrice(){
